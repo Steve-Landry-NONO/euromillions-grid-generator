@@ -1,0 +1,53 @@
+###############################################################
+# docker-compose.yml — EuroMillions Grid Generator (MVP)
+#
+# Lance backend + frontend en une seule commande :
+#   docker-compose up --build
+#
+# Services :
+#   backend  → http://localhost:8000  (FastAPI)
+#   frontend → http://localhost:5173  (React/Vite)
+###############################################################
+
+version: "3.9"
+
+services:
+
+  # ──────────────────────────────────────────
+  # Backend FastAPI
+  # ──────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: euromillions_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      # Monte le dossier data en dehors du container
+      # pour mettre à jour le CSV sans rebuild
+      - ./backend/app/data:/app/app/data
+    environment:
+      - ENV=development
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  # ──────────────────────────────────────────
+  # Frontend React (Vite)
+  # ──────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: euromillions_frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    restart: unless-stopped
