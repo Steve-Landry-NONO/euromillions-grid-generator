@@ -1,0 +1,87 @@
+# ─────────────────────────────────────────────
+# Python
+# ─────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Environnements virtuels
+.venv/
+venv/
+env/
+ENV/
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.coveragerc
+
+# mypy / ruff
+.mypy_cache/
+.ruff_cache/
+
+# ─────────────────────────────────────────────
+# Node / Frontend
+# ─────────────────────────────────────────────
+node_modules/
+dist/
+.next/
+out/
+.nuxt/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Vite
+frontend/dist/
+frontend/.vite/
+
+# ─────────────────────────────────────────────
+# Base de données
+# ─────────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+# Garder le schema, pas les données locales
+!backend/app/data/.gitkeep
+
+# ─────────────────────────────────────────────
+# Secrets & config locale
+# ─────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+*.secret
+secrets/
+
+# ─────────────────────────────────────────────
+# IDEs
+# ─────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ─────────────────────────────────────────────
+# Docker
+# ─────────────────────────────────────────────
+.docker/
+
+# ─────────────────────────────────────────────
+# Logs
+# ─────────────────────────────────────────────
+*.log
+logs/
+incident_log.md
+metrics.jsonl
