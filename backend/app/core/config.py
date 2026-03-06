@@ -53,8 +53,8 @@ SMART_GRID_DEFAULTS = {
 
 RATE_LIMIT_PER_MINUTE = 30   # requêtes max par IP par minute
 CORS_ORIGINS = [
-    "http://localhost:5173",   # Vite dev server (frontend React)
-    "http://localhost:3000",   # alternative
+    "http://localhost:5173",
+    "https://*.vercel.app",
 ]
 
 # ─────────────────────────────────────────────

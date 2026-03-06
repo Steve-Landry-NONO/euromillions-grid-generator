@@ -27,7 +27,9 @@ import { useState, useCallback, useEffect, useRef } from "react";
 // CONFIGURATION API
 // Pour pointer sur le vrai backend : changer BASE_URL
 // ─────────────────────────────────────────────────────────────
-const BASE_URL = "http://localhost:8000/api/v1";
+const BASE_URL = import.meta.env.VITE_API_URL
+  ? `${import.meta.env.VITE_API_URL}/api/v1`
+  : "http://localhost:8000/api/v1";
 
 // ─────────────────────────────────────────────────────────────
 // DONNÉES MOCK — utilisées quand le backend n'est pas disponible
