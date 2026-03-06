@@ -1,0 +1,24 @@
+# ─────────────────────────────────────────────
+# Backend — EuroMillions Grid Generator
+# Python 3.11+
+# ─────────────────────────────────────────────
+
+# API
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+
+# Validation des données
+pydantic==2.10.3
+
+# Data science
+numpy==2.2.1
+pandas==2.2.3
+
+# Tests
+pytest==8.3.4
+pytest-asyncio==0.24.0
+httpx==0.28.1          # client HTTP pour tester FastAPI
+hypothesis==6.122.3    # tests de propriété (optionnel)
+
+# Qualité code
+ruff==0.8.4            # linter/formatter ultra-rapide
